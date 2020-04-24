@@ -1,4 +1,4 @@
-package com.fordeal.disney.commons.route;
+package commons.route;
 
 import com.fordeal.disney.util.ActionLogUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +21,7 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * com.fordeal.disney.commons.route
+ * commons.route
  *
  * @Project disney
  * @Author Moxiao 2019-06-03 11:17

@@ -1,9 +1,9 @@
-package com.fordeal.disney.commons.route;
+package commons.route;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
- * com.fordeal.disney.commons.route
+ * commons.route
  *
  * @Project disney
  * @Author Moxiao 2019-06-03 11:14

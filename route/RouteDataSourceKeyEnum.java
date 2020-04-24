@@ -1,4 +1,4 @@
-package com.fordeal.disney.commons.route;
+package commons.route;
 
 /**
  * com.fordeal.disney.commons.route

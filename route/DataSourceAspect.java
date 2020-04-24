@@ -1,4 +1,4 @@
-package com.fordeal.disney.commons.route;
+package commons.route;
 
 import com.fordeal.disney.util.FurionUtil;
 import com.fordeal.disney.util.alarm.WXRobotAlarmUtil;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import java.lang.reflect.Method;
 
 /**
- * com.fordeal.disney.commons.route
+ * commons.route
  *
  * @Project disney
  * @Author Moxiao 2019-06-03 14:30
