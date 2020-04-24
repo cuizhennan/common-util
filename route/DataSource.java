@@ -6,9 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * commons.route
- *
- * @Project disney
  * @Author Moxiao 2019-06-03 14:28
  * @Use 主从注解
  */
