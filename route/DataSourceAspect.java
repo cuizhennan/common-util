@@ -20,7 +20,6 @@ import java.lang.reflect.Method;
 /**
  * commons.route
  *
- * @Project disney
  * @Author Moxiao 2019-06-03 14:30
  * @Use data source 注解拦截器
  */

@@ -23,7 +23,6 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * commons.route
  *
- * @Project disney
  * @Author Moxiao 2019-06-03 11:17
  * @Use mybatis 动态数据源拦截器
  */

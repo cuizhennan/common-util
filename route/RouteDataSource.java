@@ -5,7 +5,6 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 /**
  * commons.route
  *
- * @Project disney
  * @Author Moxiao 2019-06-03 11:14
  * @Use Mybatis route
  */
