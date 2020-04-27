@@ -1,8 +1,8 @@
 package commons.route;
 
-import com.fordeal.disney.util.FurionUtil;
-import com.fordeal.disney.util.alarm.WXRobotAlarmUtil;
-import com.fordeal.furion.client.FurionClient;
+import util.FurionUtil;
+import util.alarm.WXRobotAlarmUtil;
+import client.FurionClient;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -32,7 +32,7 @@ public class DataSourceAspect {
     @Resource
     WXRobotAlarmUtil wxRobotAlarmUtil;
 
-    @Before(value = "execution(* com.fordeal.disney..dao..*(..))")
+    @Before(value = "execution(* disney..dao..*(..))")
     public void before(JoinPoint point) {
         String dataSource = "";
         Object target = point.getTarget();
@@ -54,7 +54,7 @@ public class DataSourceAspect {
         }
     }
 
-    @After(value = "execution(* com.fordeal.disney..dao..*(..))")
+    @After(value = "execution(* disney..dao..*(..))")
     public void after(JoinPoint point) {
         RouteDataSource.setDbKey(null);
         Object target = point.getTarget();
@@ -62,24 +62,4 @@ public class DataSourceAspect {
         String packageName = target.getClass().getName() + "." + method;
         logger.debug("DATA-SOURCE-ROUTE After aspect {}", packageName);
     }
-
-//    /**
-//     * 统计sql中方法调用的时间
-//     * @param joinPoint
-//     * @throws Throwable
-//     */
-//    @Around(value = "execution(* com.fordeal.disney..dao..*(..))")
-//    public Object logSqlMethodAccess(ProceedingJoinPoint joinPoint) throws Throwable {
-//        long start = System.currentTimeMillis();
-//        Object object = joinPoint.proceed();
-//        long end = System.currentTimeMillis();
-//        long t = end - start;
-//        long sqlLimit =furionUtil.getLongValueWithDefault("sqlTime",100L);
-//        if(t>=sqlLimit){
-//            String tmp = joinPoint.getSignature().toString();
-//            logger.info(String.format("class:%s,invoke_time:%s",tmp,t));
-//            wxRobotAlarmUtil.sendAlarmPromGroup(String.format("class:%s,invoke_time:%s",tmp,t));
-//        }
-//        return object;
-//    }
 }
