@@ -1,4 +1,4 @@
-package commons.route;
+package com.jing.train.common.route;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Author Moxiao 2019-06-03 14:28
+ * @Author Moxiao
  * @Use 主从注解
  */
 @Retention(RetentionPolicy.RUNTIME)

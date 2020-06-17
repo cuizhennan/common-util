@@ -1,12 +1,7 @@
-package commons.route;
+package com.jing.train.common.route;
 
-import util.FurionUtil;
-import util.alarm.WXRobotAlarmUtil;
-import client.FurionClient;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -14,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
 
 /**
@@ -27,12 +21,8 @@ import java.lang.reflect.Method;
 @Aspect
 public class DataSourceAspect {
     private static final Logger logger = LoggerFactory.getLogger(DataSourceAspect.class.getName());
-    @Resource
-    FurionUtil furionUtil;
-    @Resource
-    WXRobotAlarmUtil wxRobotAlarmUtil;
 
-    @Before(value = "execution(* disney..dao..*(..))")
+    @Before(value = "execution(* jing*train..dao..*(..))")
     public void before(JoinPoint point) {
         String dataSource = "";
         Object target = point.getTarget();
@@ -54,7 +44,7 @@ public class DataSourceAspect {
         }
     }
 
-    @After(value = "execution(* disney..dao..*(..))")
+    @After(value = "execution(* jing*train..dao..*(..))")
     public void after(JoinPoint point) {
         RouteDataSource.setDbKey(null);
         Object target = point.getTarget();

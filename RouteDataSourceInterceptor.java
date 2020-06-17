@@ -1,6 +1,5 @@
-package commons.route;
+package com.jing.train.common.route;
 
-import com.fordeal.disney.util.ActionLogUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.keygen.SelectKeyGenerator;
@@ -23,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * commons.route
  *
- * @Author Moxiao 2019-06-03 11:17
+ * @Author Moxiao
  * @Use mybatis 动态数据源拦截器
  */
 @Intercepts({
@@ -38,8 +37,6 @@ public class RouteDataSourceInterceptor implements Interceptor {
     private static final Map<String, RouteDataSourceKeyEnum> cacheMap = new ConcurrentHashMap<>();
 
     @Resource
-    private ActionLogUtil actionLogUtil;
-    @Resource
     private RouteDataSource dataSource;
 
     @Override
@@ -47,7 +44,7 @@ public class RouteDataSourceInterceptor implements Interceptor {
         if (null != dataSource) {
             String dbKey = dataSource.getDbKey();
             if (StringUtils.isNotBlank(dbKey)) {
-                logger.debug("MYBATIS-PLUGINS-ROUTE dataSource {}", dbKey);
+                logger.info("MYBATIS-PLUGINS-ROUTE dataSource {}", dbKey);
                 return invocation.proceed();
             }
         }
@@ -80,8 +77,7 @@ public class RouteDataSourceInterceptor implements Interceptor {
                 } else {
                     routeDataSourceKeyEnum = RouteDataSourceKeyEnum.MASTER;
                 }
-                logger.debug("MYBATIS-PLUGINS-ROUTE dataSource 设置方法[{}] use [{}] Strategy, SqlCommandType [{}].", ms.getId(), routeDataSourceKeyEnum.name(), ms.getSqlCommandType().name());
-                actionLogUtil.addRequestLog(ms.getId(), routeDataSourceKeyEnum.name(), ms.getSqlCommandType().name(), "dbSwitch", "dataSource");
+                logger.info("MYBATIS-PLUGINS-ROUTE dataSource 设置方法[{}] use [{}] Strategy, SqlCommandType [{}].", ms.getId(), routeDataSourceKeyEnum.name(), ms.getSqlCommandType().name());
                 cacheMap.put(ms.getId(), routeDataSourceKeyEnum);
             }
             RouteDataSource.setDbKey(routeDataSourceKeyEnum);

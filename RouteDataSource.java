@@ -1,11 +1,11 @@
-package commons.route;
+package com.jing.train.common.route;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
  * commons.route
  *
- * @Author Moxiao 2019-06-03 11:14
+ * @Author Moxiao
  * @Use Mybatis route
  */
 public class RouteDataSource extends AbstractRoutingDataSource {
